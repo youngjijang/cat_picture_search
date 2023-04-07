@@ -1,13 +1,13 @@
-package com.example.cat_picture_search;
+package com.search.cat_picture;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CatPictureSearchApplication {
+public class CatPictureApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CatPictureSearchApplication.class, args);
+		SpringApplication.run(CatPictureApplication.class, args);
 	}
 
 }

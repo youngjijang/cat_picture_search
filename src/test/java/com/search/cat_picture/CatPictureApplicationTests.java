@@ -1,10 +1,10 @@
-package com.example.cat_picture_search;
+package com.search.cat_picture;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CatPictureSearchApplicationTests {
+class CatPictureApplicationTests {
 
 	@Test
 	void contextLoads() {
