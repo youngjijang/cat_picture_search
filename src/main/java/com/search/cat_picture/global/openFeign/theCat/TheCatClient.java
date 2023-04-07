@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import feign.Headers;
 import jakarta.websocket.server.PathParam;
 
-@FeignClient(name = "TheCatClient", url = "https://api.thecatapi.com/v1/images")
+@FeignClient(name = "TheCatClient", url = "${THE_CAT_CLIENT_URL}")
 @Headers("x-api-key: ${THE_CAT_CLIENT_KEY}")
 public interface TheCatClient{
 
-	@GetMapping(value = "/search")
+	@GetMapping(value = "/images/search")
 	CatPicturesResponse findRandomPictures(@PathParam("limit") Integer limit);
 
-	@GetMapping(value = "/{imagesId}")
+	@GetMapping(value = "/images/{imagesId}")
 	CatPictureResponse findCatPictureById(@PathVariable String imagesId);
 
-	@GetMapping(value = "/search")
+	@GetMapping(value = "/images/search")
 	CatPicturesResponse findPicturesByBreed(@PathParam("breed_ids") String breedId);
 
 }
