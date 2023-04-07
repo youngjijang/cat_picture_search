@@ -1,4 +1,4 @@
-package com.search.cat_picture.controller.dto;
+package com.search.cat_picture.dto;
 
 public record CatPictureResponse(
 	String name,
@@ -8,5 +8,5 @@ public record CatPictureResponse(
 	int height,
 	String temperament,
 	String origin
-)  {
+) {
 }

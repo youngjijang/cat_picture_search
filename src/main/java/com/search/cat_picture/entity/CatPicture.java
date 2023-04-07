@@ -18,6 +18,8 @@ public class CatPicture {
 
 	Integer height;
 
+	String provider;
+
 	String mimeType;
 
 	@OneToMany

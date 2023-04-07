@@ -12,5 +12,4 @@ public interface CatPictureRepository extends JpaRepository<CatPicture, String> 
 
 	@Query(value = "SELECT * FROM cat_picture order by RAND() desc limit :limit", nativeQuery = true)
 	List<CatPicture> findAllByRandom(@Param("limit") int limit);
-
 }
