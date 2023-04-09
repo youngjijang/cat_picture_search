@@ -7,10 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @DisplayName("")
 @SpringBootTest
-class CatPictureServiceTest {
+class DefaultCatPictureServiceTest {
 
 	@Autowired
-	private CatPictureService service;
+	private DefaultCatPictureService service;
 
 	@Test
 	void getById(){

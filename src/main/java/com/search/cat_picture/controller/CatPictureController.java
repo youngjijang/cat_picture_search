@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.search.cat_picture.dto.CatPictureResponse;
 import com.search.cat_picture.dto.CatPictureResponses;
-import com.search.cat_picture.service.CatPictureService;
+import com.search.cat_picture.service.DefaultCatPictureService;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.websocket.server.PathParam;
@@ -21,20 +21,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CatPictureController {
 
-	private final CatPictureService catPictureService;
+	private final DefaultCatPictureService defaultCatPictureService;
 
 	@GetMapping(value = "/random50", produces = APPLICATION_JSON_VALUE)
 	public ResponseEntity<CatPictureResponses> getRandom50CatPictures(){
-		return ResponseEntity.ok(catPictureService.getRandomCatPictures(50));
+		return ResponseEntity.ok(defaultCatPictureService.getRandomCatPictures(50));
 	}
 
 	@GetMapping(value = "/search", produces = APPLICATION_JSON_VALUE)
 	public ResponseEntity<CatPictureResponses> getCatPicturesByBreed(@PathParam("q") @NotNull String breedName){
-		return ResponseEntity.ok(catPictureService.getCatPicturesByBreedName(breedName));
+		return ResponseEntity.ok(defaultCatPictureService.getCatPicturesByBreedName(breedName));
 	}
 
 	@GetMapping(value = "/{imageId}", produces = APPLICATION_JSON_VALUE)
 	public ResponseEntity<CatPictureResponse> getCatPictureById(@PathVariable String imageId){
-		return ResponseEntity.ok(catPictureService.getCatPictureById(imageId));
+		return ResponseEntity.ok(defaultCatPictureService.getCatPictureById(imageId));
 	}
 }
