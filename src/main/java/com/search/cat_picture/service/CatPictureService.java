@@ -5,12 +5,10 @@ import com.search.cat_picture.dto.CatPictureResponses;
 
 public interface CatPictureService {
 
-	 void getCatPictureBy(String id);
+	 CatPictureResponses getRandomPictures(int limit);
 
-	 CatPictureResponses getRandomCatPictures(int limit);
+	 CatPictureResponses getPicturesByBreedName(String breedName);
 
-	 CatPictureResponses getCatPicturesByBreedName(String breedName);
-
-	 CatPictureResponse getCatPictureById(String imageId);
+	 CatPictureResponse getPictureById(String imageId);
 
 }

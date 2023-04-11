@@ -1,22 +1,20 @@
 package com.search.cat_picture.service;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@DisplayName("")
 @SpringBootTest
 class DefaultCatPictureServiceTest {
 
 	@Autowired
-	private DefaultCatPictureService service;
+	private TheCatPictureService service;
 
 	@Test
 	void getById(){
-		service.getCatPictureBy("zly78vxmW");
+		service.getPictureById("zly78vxmW");
 
-		var res = service.getRandomCatPictures(30);
+		var res = service.getRandomPictures(30);
 		System.out.println(res);
 	}
 

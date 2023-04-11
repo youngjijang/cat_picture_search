@@ -11,17 +11,17 @@ import com.search.cat_picture.dto.CatPictureResponses;
 
 import feign.Headers;
 
-@FeignClient(name = "TheCatClient", url = "${THE_CAT_CLIENT_URL}")
+@FeignClient(name = "TheCatImageClient", url = "${THE_CAT_CLIENT_URL}/images")
 @Headers("x-api-key: ${THE_CAT_CLIENT_KEY}")
-public interface TheCatClient {
+public interface TheCatImageClient {
 
-	@GetMapping(value = "/images/search")
+	@GetMapping(value = "/search")
 	List<TheCatSimpleImageResponse> findRandomPictures(@RequestParam("limit") Integer limit);
 
-	@GetMapping(value = "/images/{imagesId}")
-	CatPictureResponses findCatPictureById(@PathVariable String imagesId);
+	@GetMapping(value = "/{imagesId}")
+	TheCatImageResponse findCatPictureById(@PathVariable String imagesId);
 
-	@GetMapping(value = "/images/search")
+	@GetMapping(value = "/search")
 	List<TheCatSimpleImageResponse> findPicturesByBreed(@RequestParam("breed_ids") String breedId);
 
 }
