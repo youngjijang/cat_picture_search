@@ -9,5 +9,4 @@ public class CatPictureApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CatPictureApplication.class, args);
 	}
-
 }

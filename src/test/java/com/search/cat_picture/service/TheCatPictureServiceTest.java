@@ -14,6 +14,8 @@ import com.search.cat_picture.dto.CatPictureResponses;
 import com.search.cat_picture.global.exception.BadRequestException;
 import com.search.cat_picture.repository.CatPictureRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @SpringBootTest
 @Transactional
 class TheCatPictureServiceTest {
