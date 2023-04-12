@@ -10,6 +10,6 @@ public record TheCatSimpleImageResponse(
 	public record SimpleBreedResponse(
 		String name,
 		String id
-	){
+	) {
 	}
 }

@@ -18,5 +18,4 @@ public interface TheCatBreedClient {
 
 	@GetMapping(value = "/{breedId}")
 	TheCatBreedResponse findBreedById(@PathVariable String breedId);
-
 }

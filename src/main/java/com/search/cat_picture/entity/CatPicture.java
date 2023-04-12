@@ -30,6 +30,4 @@ public class CatPicture {
 
 	@OneToOne(cascade = CascadeType.PERSIST)
 	CatBreed breed;
-
-
 }

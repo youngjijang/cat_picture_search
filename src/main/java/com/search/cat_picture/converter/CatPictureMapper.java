@@ -29,20 +29,21 @@ public interface CatPictureMapper {
 	CatPictureResponse entityToResponse(CatPicture catPicture);
 
 	@Mapping(target = "name", source = "breeds", qualifiedByName = "getBreedNameByTheCat")
-	List<CatPictureResponses.SimpleCatPictureResponse> theCatResponsesToSimpleResponse(List<TheCatSimpleImageResponse> responses);
+	List<CatPictureResponses.SimpleCatPictureResponse> theCatResponsesToSimpleResponse(
+		List<TheCatSimpleImageResponse> responses);
 
 	@Named("getBreedByTheCat")
-	default CatBreed getBreedByTheCat(List<TheCatBreedResponse> breeds){
-		if (breeds == null || breeds.isEmpty()){
+	default CatBreed getBreedByTheCat(List<TheCatBreedResponse> breeds) {
+		if (breeds == null || breeds.isEmpty()) {
 			return null;
 		}
 		TheCatBreedResponse theCatBreed = breeds.get(0);
-		return new CatBreed(theCatBreed.id(),theCatBreed.name(),theCatBreed.temperament(), theCatBreed.origin());
+		return new CatBreed(theCatBreed.id(), theCatBreed.name(), theCatBreed.temperament(), theCatBreed.origin());
 	}
 
 	@Named("getBreedNameByTheCat")
-	default String getBreedNameByTheCat(List<CatPictureResponses.SimpleCatPictureResponse> breeds){
-		if (breeds == null || breeds.isEmpty()){
+	default String getBreedNameByTheCat(List<CatPictureResponses.SimpleCatPictureResponse> breeds) {
+		if (breeds == null || breeds.isEmpty()) {
 			return null;
 		}
 		return breeds.get(0).name();

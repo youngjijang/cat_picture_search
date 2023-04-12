@@ -27,13 +27,15 @@ public class TheCatPictureService implements CatPictureService {
 
 	public CatPictureResponses getRandomPictures(int limit) {
 		return
-			new CatPictureResponses(catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findRandomPictures(limit)));
+			new CatPictureResponses(
+				catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findRandomPictures(limit)));
 	}
 
 	public CatPictureResponses getPicturesByBreedName(String breedName) {
 		String breedId = catBreedService.getIdByName(breedName);
 		return
-			new CatPictureResponses(catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findPicturesByBreed(breedId)));
+			new CatPictureResponses(
+				catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findPicturesByBreed(breedId)));
 	}
 
 	public CatPictureResponse getPictureById(String imageId) {

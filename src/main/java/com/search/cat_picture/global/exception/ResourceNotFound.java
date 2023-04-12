@@ -10,6 +10,6 @@ public class ResourceNotFound extends RuntimeException {
 
 	@Override
 	public String getMessage() {
-		return String.format("%s를 찾을 수 없습니다.",resource.getName());
+		return String.format("%s를 찾을 수 없습니다.", resource.getName());
 	}
 }

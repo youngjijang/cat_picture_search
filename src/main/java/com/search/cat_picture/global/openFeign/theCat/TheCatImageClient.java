@@ -23,5 +23,4 @@ public interface TheCatImageClient {
 
 	@GetMapping(value = "/search")
 	List<TheCatSimpleImageResponse> findPicturesByBreed(@RequestParam("breed_ids") String breedId);
-
 }
