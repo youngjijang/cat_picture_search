@@ -1,14 +1,14 @@
 package com.search.cat_picture.global.openFeign.theCat;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import com.search.cat_picture.global.openFeign.FeignTest;
+
+@FeignTest
 class TheCatImageClientTest {
 
 	@Autowired
@@ -20,7 +20,7 @@ class TheCatImageClientTest {
 
 	@Test
 	@DisplayName("The cat api - 랜덤 이미지 list 조회")
-	void findImages(){
+	void findImages() {
 		var images = theCatImageClient.findRandomPictures(10);
 
 		assertThat(images.size()).isEqualTo(10);
@@ -28,7 +28,7 @@ class TheCatImageClientTest {
 
 	@Test
 	@DisplayName("The cat api - id로 이미지 조회")
-	void findBreedById(){
+	void findBreedById() {
 		var findImage = theCatImageClient.findCatPictureById(IMAGE_ID);
 
 		assertThat(findImage.id()).isEqualTo(IMAGE_ID);
@@ -36,7 +36,7 @@ class TheCatImageClientTest {
 
 	@Test
 	@DisplayName("The cat api - 품종으로 이미지 조회")
-	void findBreedByBreed(){
+	void findBreedByBreed() {
 		var findImage = theCatImageClient.findPicturesByBreed(BREED_ID);
 
 		assertThat(findImage.isEmpty()).isFalse();

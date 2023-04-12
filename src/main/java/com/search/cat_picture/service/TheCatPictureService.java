@@ -1,5 +1,7 @@
 package com.search.cat_picture.service;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +16,6 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-@Transactional
 public class TheCatPictureService implements CatPictureService {
 
 	private final TheCatImageClient theCatImageClient;
@@ -32,12 +33,16 @@ public class TheCatPictureService implements CatPictureService {
 	}
 
 	public CatPictureResponses getPicturesByBreedName(String breedName) {
-		String breedId = catBreedService.getIdByName(breedName);
+		String breedId = catBreedService.findIdByName(breedName);
+		if(breedId.isEmpty()){
+			return new CatPictureResponses(new ArrayList<>());
+		}
 		return
 			new CatPictureResponses(
 				catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findPicturesByBreed(breedId)));
 	}
 
+	@Transactional
 	public CatPictureResponse getPictureById(String imageId) {
 		CatPicture catPicture = catPictureRepository.findById(imageId)
 			.orElse(findInTheCatAndSaveById(imageId));

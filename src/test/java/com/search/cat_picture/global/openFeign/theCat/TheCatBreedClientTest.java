@@ -1,18 +1,14 @@
 package com.search.cat_picture.global.openFeign.theCat;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 
-import com.search.cat_picture.global.openFeign.OpenFeignConfig;
+import com.search.cat_picture.global.openFeign.FeignTest;
 
-@SpringBootTest
-@Import(OpenFeignConfig.class)
+@FeignTest
 class TheCatBreedClientTest {
 
 	@Autowired
@@ -22,7 +18,7 @@ class TheCatBreedClientTest {
 
 	@Test
 	@DisplayName("The cat api - 품종 list 조회")
-	void findBreeds(){
+	void findBreeds() {
 		var breeds = theCatBreedClient.findBreeds(10);
 
 		assertThat(breeds.size()).isEqualTo(10);
@@ -30,7 +26,7 @@ class TheCatBreedClientTest {
 
 	@Test
 	@DisplayName("The cat api - id로 품종 조회")
-	void findBreedById(){
+	void findBreedById() {
 		var findBreed = theCatBreedClient.findBreedById(BREED_ID);
 
 		assertThat(findBreed.id()).isEqualTo(BREED_ID);

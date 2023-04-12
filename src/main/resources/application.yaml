@@ -2,6 +2,13 @@ spring:
   profiles:
     include:
       - api-key
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
 
 feign:
   client:
@@ -9,3 +16,7 @@ feign:
       default:
         connectTimeout: 3000
         readTimeout: 5000
+
+logging:
+  level:
+    com.search.cat_picture.global.openFeign: DEBUG

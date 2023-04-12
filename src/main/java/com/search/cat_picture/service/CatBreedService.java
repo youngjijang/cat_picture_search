@@ -4,5 +4,5 @@ public interface CatBreedService {
 
 	int saveAllBreeds(Integer maximum);
 
-	String getIdByName(String name);
+	String findIdByName(String name);
 }
