@@ -2,3 +2,10 @@ spring:
   profiles:
     include:
       - api-key
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 5000

@@ -7,7 +7,6 @@ public record TheCatImageResponse(
 	String url,
 	Integer width,
 	Integer height,
-	String mimeType,
 	List<TheCatBreedResponse> breeds
 ) {
 }

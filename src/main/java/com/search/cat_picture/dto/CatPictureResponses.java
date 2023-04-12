@@ -8,7 +8,8 @@ public record CatPictureResponses(
 
 	public record SimpleCatPictureResponse(
 		String id,
-		String url
+		String url,
+		String name
 	) {
 	}
 }

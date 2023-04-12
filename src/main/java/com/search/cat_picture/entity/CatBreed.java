@@ -19,4 +19,8 @@ public class CatBreed {
 	String id;
 
 	String name;
+
+	String temperament;
+
+	String origin;
 }
