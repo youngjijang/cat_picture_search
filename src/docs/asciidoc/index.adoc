@@ -42,5 +42,3 @@ include::{snippets}/get-picture-by-id/http-response.adoc[]
 
 === response body
 include::{snippets}/get-picture-by-id/response-body.adoc[]
-
-
