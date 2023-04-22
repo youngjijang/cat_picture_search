@@ -34,11 +34,7 @@ public class TheCatBreedService implements CatBreedService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public String findIdByName(String name) {
-		Optional<CatBreed> catBreed = catBreedRepository.findByName(name);
-		if(catBreed.isPresent()){
-			return catBreed.get().getId();
-		}
-		return "";
+	public Optional<String> findIdByName(String name) {
+		return catBreedRepository.findByName(name).flatMap(catBreed -> Optional.of(catBreed.getId()));
 	}
 }

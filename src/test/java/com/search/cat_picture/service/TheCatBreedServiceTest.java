@@ -3,6 +3,7 @@ package com.search.cat_picture.service;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,15 +40,15 @@ class TheCatBreedServiceTest {
 	@Test
 	void getIdByName_success() {
 		theCatBreedService.saveAllBreeds(10);
-		String id = theCatBreedService.findIdByName("Abyssinian");
-		assertThat(id).isEqualTo("abys");
+		Optional<String> id = theCatBreedService.findIdByName("Abyssinian");
+		assertThat(id.isPresent()).isTrue();
+		assertThat(id.get()).isEqualTo("abys");
 	}
 
 	@DisplayName("품정 이름으로 db에 저장된 품종의 id를 찾는다_실패")
 	@Test
 	void getIdByName_fail() {
-		String id = theCatBreedService.findIdByName("영지");
-
+		Optional<String> id = theCatBreedService.findIdByName("영지");
 		assertThat(id).isEmpty();
 	}
 

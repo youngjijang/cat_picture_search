@@ -1,7 +1,9 @@
 package com.search.cat_picture.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,13 +35,11 @@ public class TheCatPictureService implements CatPictureService {
 	}
 
 	public CatPictureResponses getPicturesByBreedName(String breedName) {
-		String breedId = catBreedService.findIdByName(breedName);
-		if(breedId.isEmpty()){
-			return new CatPictureResponses(new ArrayList<>());
-		}
-		return
-			new CatPictureResponses(
-				catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findPicturesByBreed(breedId)));
+		return catBreedService.findIdByName(breedName)
+			.map(id ->
+				new CatPictureResponses(
+					catPictureMapper.theCatResponsesToSimpleResponse(theCatImageClient.findPicturesByBreed(id)))
+			).orElse(new CatPictureResponses(new ArrayList<>()));
 	}
 
 	@Transactional
