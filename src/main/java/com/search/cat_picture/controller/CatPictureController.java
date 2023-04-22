@@ -13,6 +13,7 @@ import com.search.cat_picture.dto.CatPictureResponse;
 import com.search.cat_picture.dto.CatPictureResponses;
 import com.search.cat_picture.service.CatPictureService;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class CatPictureController {
 	}
 
 	@GetMapping(value = "/search", produces = APPLICATION_JSON_VALUE)
-	public ResponseEntity<CatPictureResponses> getCatPicturesByBreed(@RequestParam("q") @NotNull String breedName) {
+	public ResponseEntity<CatPictureResponses> getCatPicturesByBreed(@RequestParam("q") @NotBlank String breedName) {
 		return ResponseEntity.ok(catPictureService.getPicturesByBreedName(breedName));
 	}
 
